@@ -5,3 +5,8 @@
 body {
   font-family: "Inter Variable", sans-serif;
 }
+
+.variant,
+.hex-display {
+  font-family: "JetBrains Mono Variable", monospace;
+}
