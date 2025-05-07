@@ -1,0 +1,6 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
+
+body {
+  font-family: "Inter Variable", sans-serif;
+}
