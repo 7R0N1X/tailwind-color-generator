@@ -1,20 +1,29 @@
-import { Copy } from "lucide-react";
-import { Button } from "@components/Button";
+import { useColorPicker } from "@hooks/useColorPicker";
+import { useEffect } from "react";
+import { InputText } from "@components/InputText";
+import { useTailwindColorForm } from "@hooks/useTailwindColorForm";
 
 export const TailwindColorForm = () => {
+  const { colorName, setColorName, colorHex, setColorHex, setColorPalette } = useColorPicker();
+
+  const { generatePalette, handleColorHex, handleColorName, handleColorPicker } = useTailwindColorForm({
+    setColorName,
+    setColorHex,
+    setColorPalette,
+  });
+
+  useEffect(() => {
+    setColorPalette(generatePalette(colorHex));
+  }, []);
+
   return (
-    <form action="" className="mx-auto w-fit text-gray-50">
+    <form className="mx-auto w-fit text-gray-50">
       <div className="flex items-center gap-5">
         <div className="inline-flex flex-col gap-2">
           <label htmlFor="color-name" className="w-fit">
             Color name
           </label>
-          <input
-            type="text"
-            name="color-name"
-            id="color-name"
-            className="rounded-lg bg-neutral-900 px-4 py-3"
-          />
+          <InputText id="color-name" value={colorName} eventHandler={handleColorName} />
         </div>
 
         <div>
@@ -26,20 +35,13 @@ export const TailwindColorForm = () => {
                 name="color-hex"
                 id="color-hex"
                 className="h-full w-full cursor-pointer appearance-none border-none p-0"
+                onChange={handleColorPicker}
+                value={colorHex}
               />
             </div>
-            <input
-              type="text"
-              name="hex-display"
-              id="hex-display"
-              className="rounded-lg bg-neutral-900 px-4 py-3"
-            />
+            <InputText id="hex-display" value={colorHex} eventHandler={handleColorHex} />
           </div>
         </div>
-
-        <Button className="self-end">
-          <Copy size={16} /> Copy Tailwind Config
-        </Button>
       </div>
     </form>
   );
