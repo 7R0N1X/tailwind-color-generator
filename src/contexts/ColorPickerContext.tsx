@@ -5,7 +5,7 @@ export interface ColorPickerContext {
   setColorName: (name: string) => void;
   colorHex: string;
   setColorHex: (hex: string) => void;
-  colorPalette: {};
+  colorPalette: { [key: string]: string };
   setColorPalette: ({}) => void;
 }
 
