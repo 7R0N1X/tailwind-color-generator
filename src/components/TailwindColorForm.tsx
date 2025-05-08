@@ -17,19 +17,19 @@ export const TailwindColorForm = () => {
   }, []);
 
   return (
-    <form className="mx-auto w-fit text-gray-50">
-      <div className="flex items-center gap-5">
-        <div className="inline-flex flex-col gap-2">
+    <form className="mx-auto w-full px-4 text-gray-50 sm:w-fit sm:px-6 2xl:px-0">
+      <div className="flex w-full items-center gap-5 max-sm:flex-col">
+        <div className="inline-flex w-full flex-col gap-2">
           <label htmlFor="color-name" className="w-fit">
             Color name
           </label>
           <InputText id="color-name" value={colorName} eventHandler={handleColorName} />
         </div>
 
-        <div>
+        <div className="w-full">
           <label htmlFor="color-hex">Color (HEX)</label>
           <div className="mt-2 flex gap-2.5">
-            <div className="h-12 w-[60px] rounded-lg bg-neutral-900 p-1.5">
+            <div className="h-[50px] w-[60px] rounded-lg border border-gray-50/10 bg-neutral-900 p-1.5">
               <input
                 type="color"
                 name="color-hex"

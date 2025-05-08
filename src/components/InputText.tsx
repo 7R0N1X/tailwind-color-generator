@@ -12,7 +12,7 @@ export const InputText = ({ id, value, eventHandler }: InputTextProps) => {
       type="text"
       name={id}
       id={id}
-      className="rounded-lg border border-gray-50/10 bg-neutral-900 px-4 py-3"
+      className="w-full rounded-lg border border-gray-50/10 bg-neutral-900 px-4 py-3"
       value={value}
       onChange={eventHandler}
     />
