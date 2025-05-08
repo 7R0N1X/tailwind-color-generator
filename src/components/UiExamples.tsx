@@ -6,7 +6,7 @@ export const UiExamples = () => {
     <section className="space-y-6">
       <h2 className="text-xl font-medium text-gray-50">UI Examples</h2>
       <div className="grid grid-cols-4 gap-5">
-        <Card bgColor="#110000" />
+        <Card />
         <ArticlesCard />
       </div>
     </section>
