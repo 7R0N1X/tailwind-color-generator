@@ -6,7 +6,7 @@ interface BadgeProps {
 export const Badge = ({ title, bgColor }: BadgeProps) => {
   return (
     <div
-      className="rounded-full px-2 py-0.5 text-xs leading-4 font-semibold text-gray-50"
+      className="flex items-center rounded-full px-2 py-0.5 text-xs leading-4 font-semibold text-neutral-950"
       style={{ backgroundColor: `${bgColor}` }}
     >
       {title}
