@@ -3,6 +3,7 @@ import { ColorPalette } from "@components/ColorPalette";
 import { TailwindColorForm } from "@components/TailwindColorForm";
 import { UiExamples } from "@components/UiExamples";
 import { BlurredCircle } from "@components/BlurredCircle";
+import { Footer } from "@components/Footer";
 export const App = () => {
   return (
     <div className="relative mx-auto max-w-[1489px] space-y-[60px] overflow-x-hidden pt-20 sm:pt-[96px]">
@@ -11,6 +12,7 @@ export const App = () => {
       <TailwindColorForm />
       <ColorPalette />
       <UiExamples />
+      <Footer/>
     </div>
   );
 };
