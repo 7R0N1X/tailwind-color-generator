@@ -25,7 +25,7 @@ export const AppDownloadCard = () => {
       <p className="text-sm text-gray-50/95">
         Download the Lorem mobile banking app for iOS and Android to manage your money easily and securely.
       </p>
-      <div className="mt-3 flex gap-2">
+      <div className="mt-2 flex gap-2">
         <DownloadButton store="Google Play" storeIcon={GooglePlayIcon} />
         <DownloadButton store="App Store" storeIcon={IosIcon} />
       </div>
