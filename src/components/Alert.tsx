@@ -21,7 +21,7 @@ export const Alert = ({ className }: AlertProps) => {
         <h3 className="font-semibold">Success</h3>
         <p className="text-sm">Your changes have been saved successfully.</p>
       </div>
-      <button className="ml-auto">
+      <button className="ml-auto cursor-pointer transition-all duration-300 ease-in-out hover:brightness-125">
         <X size={20} />
       </button>
     </div>
