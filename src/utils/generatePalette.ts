@@ -1,3 +1,5 @@
+import tinycolor from "tinycolor2";
+
 export const generateColorPalette = (colorHsl: string) => {
   const cleanHsl = colorHsl.replace("hsl(", "").replace(")", "");
   const [h, s, l] = cleanHsl.split(",");
@@ -27,7 +29,8 @@ export const generateColorPalette = (colorHsl: string) => {
   for (const [level, l] of Object.entries(levels)) {
     const key = Number(level);
     const hslColor = `hsl(${hslValue.h}, ${hslValue.s}%, ${l}%)`;
-    shades[key] = hslColor;
+    const hexColor = tinycolor(hslColor).toHex();
+    shades[key] = `#${hexColor}`;
   }
 
   return shades;
