@@ -1,19 +1,29 @@
-import tinycolor from "tinycolor2";
+import CopyToClipboard from "react-copy-to-clipboard";
+import { toast } from "react-toastify";
 
 interface ColorSwatchProps {
-  bgColor: string | any;
+  color: string;
   variant: string;
 }
 
-export const ColorSwatch = ({ bgColor, variant }: ColorSwatchProps) => {
-  const hex = "#" + tinycolor(bgColor).toHex();
+export const ColorSwatch = ({ color, variant }: ColorSwatchProps) => {
+  const notify = () =>
+    toast.success("Color copied", {
+      position: "bottom-right",
+    });
+
   return (
-    <div className="h-full w-full space-y-2">
-      <div className="h-[117px] w-full rounded-lg border border-gray-50/10" style={{ backgroundColor: `${hex}` }}></div>
-      <div className="text-xs text-gray-50">
-        <p className="variant mx-auto w-fit">{variant}</p>
-        <p className="hex-display mx-auto w-fit uppercase">{hex}</p>
+    <CopyToClipboard text={color}>
+      <div className="h-full w-full cursor-pointer space-y-2" role="button" onClick={notify}>
+        <div
+          className="h-[117px] w-full rounded-lg border border-gray-50/10"
+          style={{ backgroundColor: `${color}` }}
+        ></div>
+        <div className="text-xs text-gray-50">
+          <p className="variant mx-auto w-fit">{variant}</p>
+          <p className="hex-display mx-auto w-fit uppercase">{color}</p>
+        </div>
       </div>
-    </div>
+    </CopyToClipboard>
   );
 };
