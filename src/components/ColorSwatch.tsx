@@ -1,5 +1,6 @@
-import CopyToClipboard from "react-copy-to-clipboard";
+import { Copy } from "lucide-react";
 import { toast } from "react-toastify";
+import CopyToClipboard from "react-copy-to-clipboard";
 
 interface ColorSwatchProps {
   color: string;
@@ -14,11 +15,16 @@ export const ColorSwatch = ({ color, variant }: ColorSwatchProps) => {
 
   return (
     <CopyToClipboard text={color}>
-      <div className="h-full w-full cursor-pointer space-y-2" role="button" onClick={notify}>
+      <div className="h-full w-full space-y-2">
         <div
-          className="h-[117px] w-full rounded-lg border border-gray-50/10"
+          className="group flex h-[117px] w-full cursor-pointer items-center justify-center rounded-lg border border-gray-50/10"
+          role="button"
+          title="Copy"
+          onClick={notify}
           style={{ backgroundColor: `${color}` }}
-        ></div>
+        >
+          <Copy className="text-neutral-950 opacity-0 mix-blend-hard-light transition-opacity duration-300 ease-in-out group-hover:opacity-100" />
+        </div>
         <div className="text-xs text-gray-50">
           <p className="variant mx-auto w-fit">{variant}</p>
           <p className="hex-display mx-auto w-fit uppercase">{color}</p>
