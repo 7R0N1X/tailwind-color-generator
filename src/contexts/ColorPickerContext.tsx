@@ -16,8 +16,12 @@ interface ColorPickerProviderProps {
 }
 
 export const ColorPickerProvider = ({ children }: ColorPickerProviderProps) => {
-  const [colorName, setColorName] = useState("dark");
-  const [colorHex, setColorHex] = useState("#1E2939");
+  const params = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : undefined;
+  const colorNameFromURL = params?.get("color-name") || "";
+  const colorHexFromURL = params?.get("color-hex") || "";
+
+  const [colorName, setColorName] = useState(colorNameFromURL || "gray");
+  const [colorHex, setColorHex] = useState(colorHexFromURL || "#1E2939");
   const [colorPalette, setColorPalette] = useState({});
 
   return (
