@@ -8,10 +8,7 @@ interface ColorSwatchProps {
 }
 
 export const ColorSwatch = ({ color, variant }: ColorSwatchProps) => {
-  const notify = () =>
-    toast.success("Color copied", {
-      position: "bottom-right",
-    });
+  const notify = () => toast.success("Color copied");
 
   return (
     <CopyToClipboard text={color}>
