@@ -15,8 +15,25 @@ export const TailwindColorForm = () => {
     });
 
   useEffect(() => {
-    setColorPalette(generatePalette(colorHex));
+    const params = new URLSearchParams(window.location.search);
+    const colorNameFromURL = params.get("color-name");
+    const hexFromURL = params.get("color-hex");
+    if (colorNameFromURL) setColorName(colorNameFromURL);
+    if (hexFromURL) setColorHex(hexFromURL);
+    setColorPalette(generatePalette(hexFromURL || colorHex));
   }, []);
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (colorName) params.set("color-name", colorName);
+    if (colorHex) params.set("color-hex", colorHex);
+    const newURL = `${window.location.pathname}?${params.toString()}`;
+    window.history.replaceState(null, "", newURL);
+  }, [colorName, colorHex]);
+
+  useEffect(() => {
+    setColorPalette(generatePalette(colorHex));
+  }, [colorHex]);
 
   return (
     <form onSubmit={generateColorName} className="mx-auto w-full px-4 text-gray-50 sm:w-fit sm:px-6 2xl:px-0">
@@ -27,7 +44,10 @@ export const TailwindColorForm = () => {
           </label>
           <div className="flex gap-2.5">
             <InputText id="color-name" value={colorName} eventHandler={handleColorName} />
-            <button className="flex cursor-pointer items-center justify-center rounded-lg border border-gray-50/10 bg-neutral-900 px-4 py-2 text-nowrap transition-all duration-300 ease-in-out hover:brightness-150">
+            <button
+              type="submit"
+              className="flex cursor-pointer items-center justify-center rounded-lg border border-gray-50/10 bg-neutral-900 px-4 py-2 text-nowrap transition-all duration-300 ease-in-out hover:brightness-150"
+            >
               Generate name
             </button>
           </div>
