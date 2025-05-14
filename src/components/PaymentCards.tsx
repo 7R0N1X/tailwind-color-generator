@@ -28,7 +28,7 @@ export const PaymentCards = () => {
     },
   ];
   return (
-    <div className="h-[356px] w-full rounded-xl border border-gray-50/10 bg-neutral-900 px-4 py-5">
+    <div className="w-full rounded-xl border border-gray-50/10 bg-neutral-900 px-4 py-5">
       <ul className="space-y-4">
         {radios.map(({ name, description, icon: Icon }, idx) => (
           <li key={idx}>
