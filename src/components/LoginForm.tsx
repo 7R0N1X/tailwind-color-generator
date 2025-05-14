@@ -20,10 +20,7 @@ export const LoginForm = () => {
             Log in to your account
           </h3>
           <p className="text-sm text-gray-800">
-            Don't have an account?{" "}
-            <a href="#" className="font-medium">
-              Sign up
-            </a>
+            Don't have an account? <a className="cursor-pointer font-medium hover:underline">Sign up</a>
           </p>
         </div>
       </div>
