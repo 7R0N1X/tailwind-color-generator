@@ -17,7 +17,7 @@ export const Card = () => {
       ></div>
       <div className="absolute inset-0 z-10 flex flex-col justify-end gap-2 p-6 text-gray-50">
         <span>{new Date().toDateString()}</span>
-        <h2 className="relative z-20 text-4xl leading-[44px] font-semibold">Modern Web Development</h2>
+        <h3 className="relative z-20 text-4xl leading-[44px] font-semibold">Modern Web Development</h3>
       </div>
     </div>
   );
