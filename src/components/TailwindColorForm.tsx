@@ -6,24 +6,31 @@ import { useTailwindColorForm } from "@hooks/useTailwindColorForm";
 export const TailwindColorForm = () => {
   const { colorName, setColorName, colorHex, setColorHex, setColorPalette } = useColorPicker();
 
-  const { generatePalette, handleColorHex, handleColorName, handleColorPicker } = useTailwindColorForm({
-    setColorName,
-    setColorHex,
-    setColorPalette,
-  });
+  const { generatePalette, handleColorHex, handleColorName, handleColorPicker, generateColorName } =
+    useTailwindColorForm({
+      setColorName,
+      colorHex,
+      setColorHex,
+      setColorPalette,
+    });
 
   useEffect(() => {
     setColorPalette(generatePalette(colorHex));
   }, []);
 
   return (
-    <form className="mx-auto w-full px-4 text-gray-50 sm:w-fit sm:px-6 2xl:px-0">
+    <form onSubmit={generateColorName} className="mx-auto w-full px-4 text-gray-50 sm:w-fit sm:px-6 2xl:px-0">
       <div className="flex w-full items-center gap-5 max-sm:flex-col">
         <div className="inline-flex w-full flex-col gap-2">
           <label htmlFor="color-name" className="w-fit">
             Color name
           </label>
-          <InputText id="color-name" value={colorName} eventHandler={handleColorName} />
+          <div className="flex gap-2.5">
+            <InputText id="color-name" value={colorName} eventHandler={handleColorName} />
+            <button className="flex cursor-pointer items-center justify-center rounded-lg border border-gray-50/10 bg-neutral-900 px-4 py-2 text-nowrap transition-all duration-300 ease-in-out hover:brightness-150">
+              Generate name
+            </button>
+          </div>
         </div>
 
         <div className="w-full">
