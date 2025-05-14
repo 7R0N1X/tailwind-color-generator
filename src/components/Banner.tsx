@@ -13,7 +13,7 @@ export const Banner = () => {
     >
       <p className="py-2 font-medium">Discover what’s new.</p>
       <a
-        className="cursor-pointer rounded-lg px-3 py-2 text-center font-medium sm:text-sm"
+        className="cursor-pointer rounded-lg px-3 py-2 text-center font-medium transition-all duration-300 ease-in-out hover:brightness-90 sm:text-sm"
         style={{ backgroundColor: `${variant50}`, color: `${variant600}` }}
       >
         Learn more
