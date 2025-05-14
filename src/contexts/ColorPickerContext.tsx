@@ -16,8 +16,8 @@ interface ColorPickerProviderProps {
 }
 
 export const ColorPickerProvider = ({ children }: ColorPickerProviderProps) => {
-  const [colorName, setColorName] = useState("blue");
-  const [colorHex, setColorHex] = useState("#3F598D");
+  const [colorName, setColorName] = useState("dark");
+  const [colorHex, setColorHex] = useState("#1E2939");
   const [colorPalette, setColorPalette] = useState({});
 
   return (
