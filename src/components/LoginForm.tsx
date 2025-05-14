@@ -1,7 +1,11 @@
 import { GithubIcon } from "@assets/icons/GithubIcon";
 import { useColorPicker } from "@hooks/useColorPicker";
 
-export const LoginForm = () => {
+interface LoginFormProps {
+  className?: string;
+}
+
+export const LoginForm = ({ className }: LoginFormProps) => {
   const { colorPalette } = useColorPicker();
   const variant50 = colorPalette["50"];
   const variant500 = colorPalette["500"];
@@ -11,7 +15,7 @@ export const LoginForm = () => {
 
   return (
     <div
-      className="w-full max-w-sm space-y-8 rounded-xl border border-gray-50/10 p-4 pt-6 text-gray-600"
+      className={`w-full space-y-8 rounded-xl border border-gray-50/10 p-4 pt-6 text-gray-600 ${className && className}`}
       style={{ backgroundColor: `${variant50}` }}
     >
       <div className="text-center">
